@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InsightHire | Interviewer Sign Up</title>
+    <title>InsightAI | Interviewer Sign Up</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -489,7 +489,7 @@
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">
-                <span class="logo-text">InsightHire</span>
+                <span class="logo-text">InsightAI</span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">
                 <div class="hamburger-line line1"></div>
@@ -508,7 +508,7 @@
         <!-- Left Side - Welcome Banner -->
         <div class="banner">
             <div>
-                <h1>Become an InsightHire Interviewer</h1>
+                <h1>Become an InsightAI Interviewer</h1>
                 <p>Join our platform and connect with top talent, expand your professional network, and leverage cutting-edge AI-powered interviewing tools.</p>
                 
                 <div class="benefits">
@@ -540,7 +540,9 @@
             </div>
         
             <form method="post">
+                {% csrf_token %}
                 <div class="form-group">
+                    
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
                 </div>
@@ -611,7 +613,7 @@
                 <a href="/contact">Contact</a>
             </div>
             
-            <p>&copy; 2025 InsightHire. All rights reserved.</p>
+            <p>&copy; 2025 InsightAI. All rights reserved.</p>
         </div>
     </footer>
 

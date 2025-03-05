@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate Dashboard | InsightHire</title>
+    <title>Candidate Dashboard | InsightAI</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -413,7 +413,7 @@
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">
-                <span class="logo-text">InsightHire</span>
+                <span class="logo-text">InsightAI</span>
             </a>
             <div class="hamburger">
                 <span></span>
@@ -421,10 +421,7 @@
                 <span></span>
             </div>
             <div class="nav-links">
-                <a href="/dashboard/" class="active">Dashboard</a>
-                <a href="/interviews/">Interviews</a>
-                <a href="/resources/">Resources</a>
-                <a href="/profile/" class="profile-btn">My Profile</a>
+                <a href="/notfound/" class="profile-btn">My Profile</a>
             </div>
         </div>
     </nav>
@@ -439,19 +436,12 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div>
-                        <div class="user-name">John Doe</div>
+                        <div class="user-name">{{ request.user.get_full_name|default:request.user.username }}</div>
                         <div class="user-role">Software Engineer</div>
                     </div>
                 </div>
                 
-                <ul class="nav-menu">
-                    <li><a href="/dashboard/" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="/resume/"><i class="fas fa-file-alt"></i> Resume</a></li>
-                    <li><a href="/interviews/"><i class="fas fa-video"></i> Interviews</a></li>
-                    <li><a href="/feedback/"><i class="fas fa-comment-dots"></i> Feedback</a></li>
-                    <li><a href="/resources/"><i class="fas fa-book"></i> Resources</a></li>
-                    <li><a href="/settings/"><i class="fas fa-cog"></i> Settings</a></li>
-                </ul>
+                
                 
                 <div class="footer-links" style="margin-top: auto; padding-top: 2rem;">
                     <a href="/contact/">Help</a> • 
@@ -513,29 +503,11 @@
                         <h3>Your Interview has been scheduled</h3>
                         <p>Join the interview at the scheduled time using the button below.</p>   
                         <br>
-<!--                         
-                        <div class="interview-details">
-                            <div class="interview-detail">
-                                <i class="fas fa-calendar"></i>
-                                <span>March 5, 2025 at 10:30 AM</span>
-                            </div>
-                            <div class="interview-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>60 minutes</span>
-                            </div>
-                            <div class="interview-detail">
-                                <i class="fas fa-user-tie"></i>
-                                <span>Interviewer: Sarah Johnson</span>
-                            </div>
-                        </div> -->
                         
                         <div class="interview-actions">
                             <a href="{{ candidate_profile.meeting_link }}" class="btn">
                                 <i class="fas fa-video"></i>&nbsp Join Interview
                             </a>
-                            <!-- <a href="#" class="btn btn-secondary">
-                                <i class="fas fa-brain"></i> Prepare with AI
-                            </a> -->
                         </div>
                         
                     </div>
@@ -546,33 +518,6 @@
                     </div>
                     {% endif %}
                 </div>
-
-                <!-- Recommended Resources Card -->
-                <!-- <div class="card">
-                    <div class="card-header">
-                        <i class="fas fa-book-open"></i>
-                        <h2>Recommended Resources</h2>
-                    </div>
-                    
-                    <div class="resources-list">
-                        <div class="resource-item">
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="resource-details">
-                                <h4>Interview Preparation Guide</h4>
-                                <p>Comprehensive tips for technical interviews</p>
-                            </div>
-                            <a href="#" class="btn">View</a>
-                        </div>
-                        <div class="resource-item">
-                            <i class="fas fa-video"></i>
-                            <div class="resource-details">
-                                <h4>Soft Skills Masterclass</h4>
-                                <p>Enhancing communication in professional settings</p>
-                            </div>
-                            <a href="#" class="btn">Watch</a>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -581,7 +526,7 @@
 <!-- Footer -->
 <footer>
     <div class="footer-content">
-        <p>&copy; 2025 InsightHire. All rights reserved.</p>
+        <p>&copy; 2025 InsightAI. All rights reserved.</p>
         <div class="footer-links">
             <a href="/privacy/">Privacy Policy</a>
             <a href="/terms/">Terms of Service</a>

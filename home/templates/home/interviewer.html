@@ -3,37 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Interviewers | InsightHire</title>
+    <title>For Interviewers | InsightAI</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <style>
-        /* CSS Variables */
-        :root {
-            --heading-color: #0369a1;         
-            --theme-color: #0369a1; 
-        }
-        
         /* Reset and Base Styles */
+        :root {
+            /* Teal Green Color Palette */
+            --primary-color: #008080;      /* Teal */
+            --primary-light: #00a0a0;      /* Lighter Teal */
+            --primary-dark: #006666;       /* Darker Teal */
+            --accent-color: #f97316;       /* Orange Accent */
+            --background-light: #e6f2f2;   /* Light Teal Background */
+            --text-primary: #333;
+            --text-secondary: #4B5563;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
-            color: #333;
+            background: linear-gradient(135deg, var(--background-light) 0%, #d6eaea 100%);
+            color: var(--text-primary);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        
+
         /* Navigation */
         nav {
-            background-color: var(--theme-color);
+            background-color: var(--primary-color);
             color: white;
             padding: 1rem 0;
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 128, 128, 0.2);
             position: relative;
             font-family: 'Poppins', sans-serif;
         }
@@ -84,7 +90,7 @@
         }
 
         .login-btn {
-            background-color: #f97316;
+            background-color: var(--accent-color);
             padding: 0.5rem 1.25rem !important;
             border-radius: 6px !important;
             font-weight: 600 !important;
@@ -96,7 +102,7 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3);
         }
-        
+
         /* Hamburger Menu */
         .hamburger {
             display: none;
@@ -106,7 +112,7 @@
             position: relative;
             z-index: 5;
         }
-        
+
         .hamburger span {
             display: block;
             position: absolute;
@@ -119,34 +125,34 @@
             transform: rotate(0deg);
             transition: .25s ease-in-out;
         }
-        
+
         .hamburger span:nth-child(1) {
             top: 0px;
         }
-        
+
         .hamburger span:nth-child(2) {
             top: 9px;
         }
-        
+
         .hamburger span:nth-child(3) {
             top: 18px;
         }
-        
+
         .hamburger.open span:nth-child(1) {
             top: 9px;
             transform: rotate(135deg);
         }
-        
+
         .hamburger.open span:nth-child(2) {
             opacity: 0;
             left: -60px;
         }
-        
+
         .hamburger.open span:nth-child(3) {
             top: 9px;
             transform: rotate(-135deg);
         }
-        
+
         /* Main Content */
         .main-content {
             flex: 1;
@@ -159,163 +165,255 @@
             margin: 0 auto;
             width: 100%;
         }
-        
-        .page-container {
+
+        /* Container */
+        .container {
             background: white;
             border-radius: 0.75rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             width: 100%;
-            max-width: 100%;
-            overflow: hidden;
+            max-width: 1024px;
             margin: 2rem 0;
-            padding: 2rem;
+            overflow: hidden;
         }
-        
-        .header-section {
+
+        /* Header with Banner Style */
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem;
             text-align: center;
-            margin-bottom: 2rem;
         }
-        
-        .header-section h1 {
-            color: var(--heading-color);
+
+        .header h1 {
             font-size: 2.25rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .header-section p {
-            color: #4B5563;
-            font-size: 1.1rem;
-        }
-        
-        .section {
-            padding: 1.5rem;
-            border-left: 5px solid var(--theme-color);
-            background: #f0f9ff;
-            margin-bottom: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        
-        .section h2 {
-            color: var(--heading-color);
-            display: flex;
-            align-items: center;
+            font-weight: 700;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
         }
-        
-        .section h2 i {
-            margin-right: 0.75rem;
-            color: #f97316;
-        }
-        
-        .section p, .section ul {
-            color: #4B5563;
+
+        .header p {
+            color: var(--background-light);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto;
             line-height: 1.6;
         }
-        
-        .section ul {
-            margin-left: 2rem;
+
+        /* Content Section */
+        .content-section {
+            padding: 2.5rem;
         }
-        
-        .section ul li {
+
+        /* Benefit Row Structure */
+        .benefits-row {
+            display: flex;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .benefit-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background-color: rgba(0, 128, 128, 0.1);
+            color: var(--primary-color);
+            border-radius: 12px;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-content {
+            flex: 1;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Information Section */
+        .section {
+            margin-bottom: 2.5rem;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title i {
+            margin-right: 0.75rem;
+            color: var(--accent-color);
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .section-content ul {
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .section-content li::marker {
+            color: var(--accent-color);
+        }
+
+        /* Help Section */
+        .help-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--background-light);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 2.5rem;
+            border: 1px solid var(--primary-light);
+        }
+
+        .help-content {
+            flex: 1;
+        }
+
+        .help-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .help-content h3 i {
+            margin-right: 0.75rem;
+            color: var(--accent-color);
+        }
+
+        .help-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
             margin-bottom: 0.5rem;
         }
-        
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
+
+        .help-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        
+
+        .help-content a:hover {
+            color: #ea580c;
+            text-decoration: underline;
+        }
+
+        .help-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-left: 2rem;
+        }
+
+        /* CTA Section */
+        .cta-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
         .cta-button {
-            background-color: #f97316;
+            background-color: var(--primary-color);
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.75rem;
             border-radius: 0.5rem;
             font-weight: 600;
             border: none;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
+            display: inline-block;
+            font-size: 1.125rem;
         }
-        
+
+        .cta-button:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 128, 128, 0.3);
+        }
+
         .cta-button i {
             margin-right: 0.5rem;
-        }
-        
-        .cta-button:hover {
-            background-color: #ea580c;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3);
-        }
-        
-        .support-options {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        
-        .support-option {
-            display: flex;
-            align-items: center;
-            color: var(--heading-color);
-            font-weight: 500;
-        }
-        
-        .support-option i {
-            margin-right: 0.5rem;
-            color: #f97316;
-        }
-        
-        .support-option a {
-            color: var(--heading-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .support-option a:hover {
-            color: #f97316;
-            text-decoration: underline;
         }
 
         /* Footer */
         footer {
-            background-color: var(--theme-color);
+            background-color: #0f766e; /* Teal color */
             color: white;
             padding: 2rem;
             text-align: center;
             margin-top: auto;
         }
-
+        
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
         }
-
+        
         .footer-links {
             display: flex;
             justify-content: center;
             margin: 1rem 0;
         }
-
+        
         .footer-links a {
-            color: #dbeafe;
+            color: #dcfce7; /* Light green */
             text-decoration: none;
             margin: 0 1rem;
             transition: color 0.3s;
         }
-
-        .footer-links a:hover {
-            color: #f97316;
-        }
         
+        .footer-links a:hover {
+            color: #f97316; /* Orange accent */
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hamburger {
@@ -328,7 +426,7 @@
                 right: -100%;
                 width: 250px;
                 height: auto;
-                background-color: #0ea5e9;
+                background-color: var(--primary-light);
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 80px 30px 30px;
@@ -336,8 +434,8 @@
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 z-index: 4;
                 border-radius: 0 0 0 10px;
-                border-bottom: 3px solid #0369a1;
-                border-left: 3px solid #0369a1;
+                border-bottom: 3px solid var(--primary-color);
+                border-left: 3px solid var(--primary-color);
             }
             
             .nav-links.open {
@@ -376,16 +474,21 @@
                 visibility: visible;
             }
             
-            .page-container {
-                padding: 1.5rem;
+            .benefits-row {
+                flex-direction: column;
             }
             
-            .header-section h1 {
-                font-size: 1.75rem;
+            .benefit-card {
+                margin: 0.75rem 0;
             }
             
-            .section {
-                padding: 1.25rem;
+            .help-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .help-icon {
+                margin: 1rem 0 0 0;
             }
         }
     </style>
@@ -395,7 +498,7 @@
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">
-                <span class="logo-text">InsightHire</span>
+                <span class="logo-text">InsightAI</span>
             </a>
             <div class="hamburger">
                 <span></span>
@@ -408,64 +511,94 @@
         </div>
     </nav>
 
-    <!-- Overlay for mobile menu -->
-    <div class="overlay"></div>
-
     <!-- Main Content -->
     <div class="main-content">
-        <div class="page-container">
-            <div class="header-section">
+        <div class="container">
+            <!-- Header in Banner Style -->
+            <div class="header">
                 <h1>Empower Your Interviews with AI</h1>
                 <p>Make better hiring decisions with our advanced candidate assessment platform</p>
             </div>
-
-            <div class="section">
-                <h2><i class="fas fa-info-circle"></i> About InsightHire</h2>
-                <p>InsightHire provides AI-powered candidate assessment, analyzing facial expressions and body language to assist in better hiring decisions. Our platform helps you understand candidates beyond their resume and prepared answers, giving you deeper insights into their potential fit for your organization.</p>
-            </div>
-
-            <div class="section">
-                <h2><i class="fas fa-check-circle"></i> Key Benefits</h2>
-                <ul>
-                    <li><strong>Real-time AI assessment</strong> - Get instant feedback on candidate responses and non-verbal cues</li>
-                    <li><strong>Smart question generation</strong> - Let our AI suggest questions based on candidate profiles and responses</li>
-                    <li><strong>Comprehensive behavioral insights</strong> - Access detailed analytics about candidate behavior patterns</li>
-                    <li><strong>Seamless integration</strong> - Works with popular video conferencing platforms like Zoom, Teams, and Google Meet</li>
-                    <li><strong>Time-saving tools</strong> - Automated note-taking and summarization of interview highlights</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2><i class="fas fa-tools"></i> Getting Started</h2>
-                <p>Begin using InsightHire in three simple steps:</p>
-                <ol>
-                    <li>Create your interviewer account</li>
-                    <li>Set up your interview preferences and assessment criteria</li>
-                    <li>Schedule interviews through our integrated calendar system</li>
-                </ol>
-                <p>Our platform will guide you through the process and provide training resources to maximize your interview effectiveness.</p>
-            </div>
-
-            <div class="section">
-                <h2><i class="fas fa-headset"></i> Support &amp; Resources</h2>
-                <p>We're here to help you make the most of InsightHire. Access our comprehensive resources:</p>
-                
-                <div class="support-options">
-                    <div class="support-option">
-                        <i class="fas fa-book"></i>
-                        <a href="/notfound/">Documentation</a>
+    
+            <!-- Content Section -->
+            <div class="content-section">
+                <!-- Benefits in Row Structure -->
+                <div class="benefits-row">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>AI-Powered Insights</h3>
+                            <p>Receive deep, objective analysis of candidate responses and non-verbal communication during interviews.</p>
+                        </div>
                     </div>
-                    <div class="support-option">
-                        <i class="fas fa-video"></i>
-                        <a href="/notfound/">Video Tutorials</a>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Performance Analytics</h3>
+                            <p>Access comprehensive behavioral insights and performance metrics for more informed hiring decisions.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="button-container">
-                <a href="/interviewer/signup/" class="cta-button">
-                    <i class="fas fa-user-plus"></i> Become an Interviewer
-                </a>
+                
+                <div class="benefits-row">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Smart Question Generation</h3>
+                            <p>Leverage AI to generate tailored interview questions based on candidate profiles and job requirements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Unbiased Assessment</h3>
+                            <p>Minimize unconscious bias with AI-driven evaluation that focuses on skills and potential.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Information Section -->
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i> How It Works</h2>
+                    <div class="section-content">
+                        <p>InsightAI transforms your interview process with cutting-edge AI technology. Our platform provides:</p>
+                        <ul>
+                            <li>Advanced facial expression and body language analysis</li>
+                            <li>Real-time candidate engagement scoring</li>
+                            <li>Automated interview note-taking and summarization</li>
+                            <li>Comprehensive candidate potential assessment</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- CTA Section -->
+                <div class="cta-container">
+                    <a href="/interviewer/signup/" class="cta-button">
+                        <i class="fas fa-user-plus"></i> Become an Interviewer
+                    </a>
+                </div>
+    
+                <!-- Help Section -->
+                <div class="help-container">
+                    <div class="help-content">
+                        <h3><i class="fas fa-question-circle"></i> Need Assistance?</h3>
+                        <p>Our support team is ready to help you maximize your interview effectiveness.</p>
+                        <p>Visit our <a href="/notfound/">help center</a> or email us at <strong>insightai.hackathonclub.com</strong></p>
+                    </div>
+                    <div class="help-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -473,7 +606,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 InsightHire. All rights reserved.</p>
+            <p>&copy; 2025 InsightAI. All rights reserved.</p>
             <div class="footer-links">
                 <a href="/privacy/">Privacy Policy</a>
                 <a href="/terms/">Terms of Service</a>
@@ -542,5 +675,5 @@
             });
         });
     </script>
-</body>
-</html>
+    </body>
+    </html>
